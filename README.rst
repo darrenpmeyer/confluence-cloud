@@ -3,7 +3,9 @@
 
 ::
 
-    pip install git+ssh@github.com:darrenpmeyer/confluence-cloud.git
+    pip install git+ssh@github.com:darrenpmeyer/confluence-cloud.git#subdirectory=src
+
+(**NB**: the above doesn't work yet, but will eventually)
 
 .. code-block:: python
 
