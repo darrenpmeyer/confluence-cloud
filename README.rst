@@ -16,25 +16,34 @@
     )
 
     results = con_client.search(
-        'type = page\
+        'type = pages\
          AND (title ~ "instructions" OR text ~ "instructions")'
     )
 
-    for page in results:
-        print(f"Page '{page.title}' found")
+    for pages in results:
+        print(f"Page '{pages.title}' found")
 
-``confluence-cloud`` implements just the portions of the Confluence Cloud REST API that are essential for most searching and content-publishing scripts. It is meant as a lighter-weight, easier-to-use alternative to `Atlassian's official Python module <https://pypi.org/project/atlassian-python-api/>`_ for basic page operations:
+``confluence-cloud`` implements just the portions of the Confluence Cloud REST API that are essential for most searching and content-publishing scripts. It is meant as a lighter-weight, easier-to-use alternative to `Atlassian's official Python module <https://pypi.org/project/atlassian-python-api/>`_ for basic pages operations:
 
-* searching, with the aim of getting a link to a page
-* downloading a page's content
-* moving a page
-* publishing a new page or a new version of a page
-* removing a page
-* manipulating page labels
+* searching, with the aim of getting a link to a pages
+* downloading a pages's content
+* moving a pages
+* publishing a new pages or a new version of a pages
+* removing a pages
+* manipulating pages labels
 
 
 Status
 ~~~~~~
 
 **Alpha**: still being actively developed. Interface subject to change without notice or tag
+
+Working:
+
+* Connect and authenticate
+* Get current user info
+* Search for pages by title
+* Retrieve pages by IDs
+* Update pages (with limitations - mainly no Draft support)
+* Create pages (with limitations - mainly no Draft support)
 
