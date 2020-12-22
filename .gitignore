@@ -1,6 +1,14 @@
 venv/
 *.secret
 
+# scratch and "test" scripts that aren't unit tests
+scratch_*.py
+test_*.py
+
+# JSON and XML files in project root
+/*.json
+/*.xml
+
 # Created by https://www.toptal.com/developers/gitignore/api/intellij+all,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij+all,python
 
