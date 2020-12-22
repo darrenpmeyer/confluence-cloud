@@ -158,7 +158,7 @@ class ConfluenceCloudClient(object):
         if also_expand is not None:
             expand += ',' + also_expand
 
-        response = self._api_call('GET', '/content/{id}', query_params={'id': contentid},
+        response = self._api_call('GET', '/content/{id}', query_params={'id': str(contentid)},
                                   query_args=thin_dict({'expand': expand}))
         data = response.json()
         _DETAILED_DEBUG and mlog.debug(f"Response {data}")
@@ -182,7 +182,7 @@ class ConfluenceCloudClient(object):
         }
 
         if ancestor_id is not None:
-            page_data['ancestors'] = {'id': ancestor_id}
+            page_data['ancestors'] = [ {'id': str(ancestor_id)} ]
 
         mlog.debug(f"Create page data: {page_data}")
 
