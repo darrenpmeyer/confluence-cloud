@@ -27,11 +27,18 @@ def config_file_path(filename, search_path=None, max_mode=0o644):
     :raises: PermissionError if file exceeds ``max_mode``
     """
     if search_path is None:
+        mlog.debug(f"Setting Search Path to default: {CONFIG_PATHS}")
         search_path = CONFIG_PATHS
     fq_path = None  # the fully-qualified path to return
     errors = []  # errors with files that _are_ found
 
-    for path in [os.path.dirname(filename), search_path]:
+    filepath = [os.path.dirname(filename)]
+    filepath.extend(search_path)
+
+    mlog.debug(f"Filepath: '{filepath}'")
+
+    for path in filepath:
+        mlog.debug(f"Path: '{path}'")
         file_path = os.path.abspath(os.path.join(path, filename))
         if os.path.isfile(file_path):
             stat = os.stat(file_path)
